@@ -1,5 +1,5 @@
-Cargo, model,400,900,66_000_000
-Fighter, model,650,456,95_000_000
-Passenger, model,850,50_000_000
-Fighter, model,646,470,87_000_000
-Cargo, model,910,456,70_000_000
+Cargo, model, 400, 900, 66_000_000
+Fighter, model, 650, 456, 95_000_000
+Passenger, model, 850, 950, 50_000_000
+Fighter, model, 646, 470, 87_000_000
+Cargo, model, 910, 456, 70_000_000

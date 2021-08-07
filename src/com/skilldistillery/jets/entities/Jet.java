@@ -6,12 +6,12 @@ public abstract class Jet {
 	private int range;
 	private long price;
 	
-	
+	// no arg constructor
 	public Jet() {
 		super();
 	}
 
-
+	// 4 arg constructor
 	public Jet(String model, double speedInMph, int range, long price) {
 		super();
 		this.model = model;
@@ -19,7 +19,7 @@ public abstract class Jet {
 		this.range = range;
 		this.price = price;
 	}
-	
+	// Calculate maximum flight time and print all info
 	public void fly() {
 		double maxFlightTime = (this.range / this.speedInMph);
 		System.out.println("Model: " + this.model + " Speed in mph: " + this.speedInMph + " Range in miles: " + this.range 
@@ -62,7 +62,7 @@ public abstract class Jet {
 	}
 
 
-	public void setPrice(long price) {
+	public void setPrice(long prince) {
 		this.price = price;
 	}
 
