@@ -62,7 +62,7 @@ public abstract class Jet {
 	}
 
 
-	public void setPrice(long prince) {
+	public void setPrice(long price) {
 		this.price = price;
 	}
 

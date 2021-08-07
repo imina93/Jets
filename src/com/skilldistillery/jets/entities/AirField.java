@@ -4,5 +4,5 @@ import java.util.ArrayList;
 
 public class AirField {
 	//create ArrayList to hold jets
-	ArrayList airFieldFleet = new ArrayList();
+	ArrayList<Jet> airFieldFleet = new ArrayList<Jet>();
 }
