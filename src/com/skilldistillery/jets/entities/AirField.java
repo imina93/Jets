@@ -1,8 +1,9 @@
 package com.skilldistillery.jets.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AirField {
 	//create ArrayList to hold jets
-	ArrayList<Jet> airFieldFleet = new ArrayList<Jet>();
+	List<Jet> airFieldFleet = new ArrayList<Jet>();
 }

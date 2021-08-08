@@ -19,13 +19,18 @@ public class JetsApplication {
 		String fileName = "Jets.txt";
 		// Create scanner
 		Scanner kb = new Scanner(System.in);
-
-		// create a menu
-		run.displayMenu();
+		
+		
+		
+		
 		// create switch for menu options
+		
 		boolean menuOpen = true;
-		int menuInput = kb.nextInt();
+		int menuInput;
 		while (menuOpen) {
+			run.displayMenu();
+			menuInput = kb.nextInt();
+			
 			switch (menuInput) {
 			case 1:
 				try (BufferedReader bufIn = new BufferedReader(new FileReader(fileName))) {
@@ -38,6 +43,7 @@ public class JetsApplication {
 				}
 				break;
 			case 2:
+				
 			case 3:
 			case 4:
 			case 5:
@@ -53,9 +59,10 @@ public class JetsApplication {
 		kb.close();
 	}
 
+	// create a menu
 	private void displayMenu() {
 		System.out.println("==========Fleet Menu==========");
-		System.out.println("1. List fleet");
+		System.out.println("1. List curret fleet");
 		System.out.println("2. Fly all jets");
 		System.out.println("3. View fastest jet");
 		System.out.println("4. View jet with longest range");
