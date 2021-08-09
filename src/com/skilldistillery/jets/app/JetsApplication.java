@@ -51,8 +51,8 @@ public class JetsApplication {
 			case 7: //
 				System.out.println("Which type of jet would you like to create?");
 				System.out.println("1) FighterJet");
-				System.out.println("2) StealthJet");
-				System.out.println("3) Airliner");
+				System.out.println("2) CargoPlane");
+				System.out.println("3) PassengerPlane");
 				int choiceOfJet = kb.nextInt();
 				System.out.print("Please enter model: ");
 				String model = kb.next();

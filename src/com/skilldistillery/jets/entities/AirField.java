@@ -1,17 +1,11 @@
 package com.skilldistillery.jets.entities;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-import com.skilldistillery.jets.entities.CargoPlane;
-import com.skilldistillery.jets.entities.FighterJet;
-import com.skilldistillery.jets.entities.Jet;
-import com.skilldistillery.jets.entities.PassengerPlane;
 
 public class AirField {
 	//create ArrayList to hold jets
@@ -78,7 +72,6 @@ public class AirField {
 				((CargoPlane) jetType).unloadCargo();
 			}
 		}
-		System.out.println("Wonder what they got us hauling back there?");
 		
 	}
 	
@@ -104,10 +97,9 @@ public class AirField {
 		int userChoice = 0;
 		System.out.println("Which jet do you want to remove from the fleet? ");
 		for (int i = 0; i < airFleet.size(); i++) {
-			System.out.println(i + 1 + ") " + airFleet.get(i).getModel());		// we just added one to our iterator to make our 
-		}																		// list begin at index 1 instead of 0 (for menu selection purposes)
-		userChoice = sc.nextInt();
-		airFleet.remove(userChoice - 1); 		// had to subtract one to reconcile for our adding 1 above^
+			System.out.println(i + 1 + ") " + airFleet.get(i).getModel());		
+		}																		
+		airFleet.remove(userChoice - 1); 
 		
 	}
 
@@ -117,8 +109,8 @@ public List<Jet> loadJets(String fileName) {
 		String line;
 		while ((line = bufIn.readLine()) != null) {
 			Jet type;
-			String[] jetFields = line.split(","); 		// splitting the individual data types of the file's lines into
-			if (jetFields[4].equals("Fighter")) {		// 		 individual fields (organized in their own indexes)
+			String[] jetFields = line.split(","); 		// The split lets the reader break up the txt file
+			if (jetFields[4].equals("Fighter")) {		
 				type = new FighterJet(jetFields[0], Double.parseDouble(jetFields[1]), Integer.parseInt(jetFields[2]),
 						Long.parseLong(jetFields[3]));
 			} else if (jetFields[4].equals("Cargo")) {
