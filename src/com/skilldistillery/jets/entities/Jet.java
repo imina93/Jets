@@ -13,10 +13,14 @@ public abstract class Jet {
 		super();
 	}
 
+
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(model, price, getRange(), speedInMph);
+		return Objects.hash(model, price, range, speedInMph);
 	}
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -27,9 +31,11 @@ public abstract class Jet {
 		if (getClass() != obj.getClass())
 			return false;
 		Jet other = (Jet) obj;
-		return Objects.equals(model, other.model) && price == other.price && getRange() == other.getRange()
+		return Objects.equals(model, other.model) && price == other.price && range == other.range
 				&& Double.doubleToLongBits(speedInMph) == Double.doubleToLongBits(other.speedInMph);
 	}
+
+
 
 	// 4 arg constructor
 	public Jet(String model, double speedInMph, int range, long price) {

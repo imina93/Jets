@@ -99,7 +99,7 @@ public class AirField {
 		for (int i = 0; i < airFleet.size(); i++) {
 			System.out.println(i + 1 + ") " + airFleet.get(i).getModel());		
 		}																		
-		airFleet.remove(userChoice - 1); 
+		airFleet.remove(userChoice); 
 		
 	}
 
