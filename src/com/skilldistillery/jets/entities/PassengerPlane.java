@@ -1,18 +1,12 @@
 package com.skilldistillery.jets.entities;
 
-public class FighterJet extends Jet implements CombatReady{
+public class PassengerPlane extends Jet {
 
-	public FighterJet() {
-		super();
-	}
-	
-	public FighterJet(String model, double speedInMph, int range, long price) {
-		super(model, speedInMph, range, price);
-	}
 	
 
 	@Override
 	public void fly() {
+		// TODO Auto-generated method stub
 		super.fly();
 	}
 
@@ -66,33 +60,18 @@ public class FighterJet extends Jet implements CombatReady{
 
 	@Override
 	public String toString() {
-		return "FighterJet model: " + getModel() + ", Speed: " + getSpeedInMph() 
+		return "PassengerJet model: " + getModel() + ", Speed: " + getSpeedInMph() 
 		+ "MPH , Range: " + getRange() + ", Price: $ " + getPrice();
 	}
 
-	public void dogFight() {
-		System.out.println("Welcome to the Danger Zone!");
-		
+	public PassengerPlane() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void hostilesDetected() {
-		System.out.println("I'm picking up some boogies on my six!");
-		
+	public PassengerPlane(String model, double speedInMph, int range, long price) {
+		super(model, speedInMph, range, price);
+		// TODO Auto-generated constructor stub
 	}
-
-	@Override
-	public void targetLocked() {
-		System.out.println("Locked on! Firing missiles!");
-		
-	}
-
-	@Override
-	public void smokeScreen() {
-		System.out.println("Can't it what you can't see!");
-	}
-
-
-
 
 }

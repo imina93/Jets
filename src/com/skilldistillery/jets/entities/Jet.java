@@ -1,5 +1,7 @@
 package com.skilldistillery.jets.entities;
 
+import java.util.Objects;
+
 public abstract class Jet {
 	private String model;
 	private double speedInMph;
@@ -11,18 +13,36 @@ public abstract class Jet {
 		super();
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(model, price, getRange(), speedInMph);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Jet other = (Jet) obj;
+		return Objects.equals(model, other.model) && price == other.price && getRange() == other.getRange()
+				&& Double.doubleToLongBits(speedInMph) == Double.doubleToLongBits(other.speedInMph);
+	}
+
 	// 4 arg constructor
 	public Jet(String model, double speedInMph, int range, long price) {
 		super();
 		this.model = model;
 		this.speedInMph = speedInMph;
-		this.range = range;
+		this.setRange(range);
 		this.price = price;
 	}
 	// Calculate maximum flight time and print all info
 	public void fly() {
-		double maxFlightTime = (this.range / this.speedInMph);
-		System.out.println("Model: " + this.model + " Speed in mph: " + this.speedInMph + " Range in miles: " + this.range 
+		double maxFlightTime = (this.getRange() / this.speedInMph);
+		System.out.println("Model: " + this.model + " Speed in mph: " + this.speedInMph + " Range in miles: " + this.getRange() 
 				+ "Price: $" + this.price + "Maximum Flight Time: " + maxFlightTime);
 	}
 
@@ -69,7 +89,7 @@ public abstract class Jet {
 
 	@Override
 	public String toString() {
-		return "Jet [model=" + model + ", speedInMph=" + speedInMph + ", range=" + range + ", price=" + price + "]";
+		return "Jet model: " + model + ", Speed: " + speedInMph + "MPH , Range: " + getRange() + ", Price: $" + price;
 	}
 	
 

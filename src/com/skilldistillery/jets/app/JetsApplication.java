@@ -1,64 +1,84 @@
 package com.skilldistillery.jets.app;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.List;
 import java.util.Scanner;
 
+
 import com.skilldistillery.jets.entities.AirField;
-import com.skilldistillery.jets.entities.Jet;
 
 public class JetsApplication {
 	private AirField airfield;
-
+	static Scanner kb = new Scanner(System.in);
+	
 	public static void main(String[] args) {
 		// Create object to run the program
 		JetsApplication run = new JetsApplication();
-		// read list of jets into method
-		String fileName = "Jets.txt";
-		// Create scanner
-		Scanner kb = new Scanner(System.in);
+		run.Startup(kb);
 		
+	}
+		public void Startup(Scanner kb) {
+			airfield = new AirField(); // (1b) ( (2b) populate the airfield)
+			System.out.println("Hello and welcome to our Digital Fleet!");
+			UserOption(kb);
+		}
 		
-		
+		public void UserOption(Scanner kb) {
+		boolean menuOpen = true;
 		
 		// create switch for menu options
-		
-		boolean menuOpen = true;
-		int menuInput;
 		while (menuOpen) {
-			run.displayMenu();
-			menuInput = kb.nextInt();
+			displayMenu();
+			int menuInput = kb.nextInt();
 			
 			switch (menuInput) {
 			case 1:
-				try (BufferedReader bufIn = new BufferedReader(new FileReader(fileName))) {
-					String line;
-					while ((line = bufIn.readLine()) != null) {
-						System.out.println(line);
-					}
-				} catch (IOException e) {
-					System.err.println(e);
-				}
+				airfield.showFleet();
 				break;
 			case 2:
-				
+				airfield.flyFleet();
+				break;
 			case 3:
+				airfield.calcFastJet();
+				break;
 			case 4:
+				airfield.calcRange();
+				break;
 			case 5:
+				airfield.cargo();
+				break;
 			case 6:
-			case 7:
+				airfield.dogFight();
+				break;
+			case 7: //
+				System.out.println("Which type of jet would you like to create?");
+				System.out.println("1) FighterJet");
+				System.out.println("2) StealthJet");
+				System.out.println("3) Airliner");
+				int choiceOfJet = kb.nextInt();
+				System.out.print("Please enter model: ");
+				String model = kb.next();
+				System.out.print("Please enter speed(MPH): ");
+				double speed = kb.nextDouble();
+				kb.nextLine();
+				System.out.print("Please enter range(miles): ");
+				int range = kb.nextInt();
+				System.out.print("Please enter price(USD): ");
+				long price = kb.nextLong();
+				airfield.addJet(choiceOfJet, model, speed, range, price);
+				break;
 			case 8:
+				airfield.removeJet(kb);
+				break;
 			case 9:
 				menuOpen = false;
-				System.out.println("Thanks for flying with us!");
+				System.out.println("Thanks for digitally flying with us!");
 				break;
+			default:
+				System.err.println("Invalid entry! Select option 1 - 9");
 			}
 		}
-		kb.close();
+	
+		
 	}
-
 	// create a menu
 	private void displayMenu() {
 		System.out.println("==========Fleet Menu==========");
@@ -75,5 +95,4 @@ public class JetsApplication {
 		System.out.println("==============================");
 
 	}
-
 }
